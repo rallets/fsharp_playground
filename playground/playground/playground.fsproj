@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="01-BasicFunctions.fs" />
+    <Compile Include="02-Immutability.fs" />
+    <Compile Include="03-Primitives.fs" />
+    <Compile Include="04-Tuples.fs" />
+    <Compile Include="05-Composition.fs" />
+    <Compile Include="06-Lists.fs" />
+    <Compile Include="07-RecursiveFunctions.fs" />
+    <Compile Include="08-RecordTypes.fs" />
+    <Compile Include="08-DiscriminatedUnions.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>

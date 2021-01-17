@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "playground", "playground\playground.fsproj", "{728EA1EC-E725-4EAB-B041-B316A8985264}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD1CC6BB-BBD2-42FD-A332-0FA3DD2011B0}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{728EA1EC-E725-4EAB-B041-B316A8985264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728EA1EC-E725-4EAB-B041-B316A8985264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728EA1EC-E725-4EAB-B041-B316A8985264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728EA1EC-E725-4EAB-B041-B316A8985264}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B22FC4B6-668E-4CD0-BC18-D65BB5E42529}
+	EndGlobalSection
+EndGlobal
