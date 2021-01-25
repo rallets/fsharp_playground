@@ -52,5 +52,14 @@ let main argv =
     Playground.RecordTypes.ex2()
 
     Playground.DiscriminatedUnions.printAllCards()
+    Playground.DiscriminatedUnions.ex2()
+    Playground.DiscriminatedUnions.ex3()
+
+    Playground.PatternMatching.ex1()
+    Playground.PatternMatching.ex2()
+    Playground.PatternMatching.ex3()
+    Playground.PatternMatching.ex4()
+
+    Playground.OptionValues.ex1()
 
     0 // return an integer exit code

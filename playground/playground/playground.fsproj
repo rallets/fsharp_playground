@@ -13,8 +13,10 @@
     <Compile Include="05-Composition.fs" />
     <Compile Include="06-Lists.fs" />
     <Compile Include="07-RecursiveFunctions.fs" />
-    <Compile Include="08-RecordTypes.fs" />
-    <Compile Include="08-DiscriminatedUnions.fs" />
+    <Compile Include="08A-RecordTypes.fs" />
+    <Compile Include="08B-DiscriminatedUnions.fs" />
+    <Compile Include="09-PatternMatching.fs" />
+    <Compile Include="10-OptionalTypes.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
