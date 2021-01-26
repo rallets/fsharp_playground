@@ -43,8 +43,6 @@ module PatternMatching =
                        | _ -> false) // '_' is a wildcard pattern that matches anything.
                                      // This handles the "or else" case.
     
-    // TODO: how can we write a generic function findPersonWithOpenPosition "Name1" emps ?
-
     let pers1 =  { First = "Name1"; Last = "Surname1" }
     let pers2 =  { First = "Name2"; Last = "Surname2" }
     let pers3 =  { First = "Name3"; Last = "Surname3" }
@@ -74,6 +72,30 @@ module PatternMatching =
     let openPosition = findName6WithOpenPosition company
 
     let ex2() = printfn $"Company has {openPosition|> List.length} employee with open positions"
+
+    // Find a person by Firstname
+    let findByName (name:string) =
+        fun lst ->
+            List.filter (fun a -> 
+                match a with
+                | Engineer(person) ->
+                    person.First = name
+                | Manager(person, _reports) ->
+                        person.First = name
+                | Executive(person, _reports, _assistant) ->
+                        person.First = name
+                // | _ ->
+                //     false
+                ) lst
+     
+     /// Iterate for all persons, then try to find them. Uses tuples to pass multiple values through the mappings.
+    let ex21() =
+        let result = 
+            [ 1 .. 6 ]                                                          // from 1 to 6
+            |> List.map (fun n -> $"Name{n}")                                   // build the name (Name1, Name2, ...)
+            |> List.map (fun (name) -> (name, findByName name company))         // try to find the person, returns a tuple (name, Employee list)
+            |> List.map (fun (name, list) -> $"Looking for {name} = {list}")    // map to a "log" line 
+        printfn $"res = %A{result}"
 
     /// You can also use the shorthand function construct for pattern matching, 
     /// which is useful when you're writing functions which make use of Partial Application.

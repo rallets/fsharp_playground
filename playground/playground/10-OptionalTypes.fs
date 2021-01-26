@@ -31,8 +31,11 @@ module OptionValues =
     /// transforming data with Optionals.
     let CustomerShippingZone (calculator: IShippingCalculator, customer: Customer) =
         customer.ZipCode 
-        |> Option.bind calculator.GetState 
-        |> Option.map calculator.GetShippingZone
+        |> Option.bind calculator.GetState          // The Option.bind function executes a function on the value, if there is a value. 
+                                                    // The function must take exactly one argument, and its parameter type must be the option type. 
+                                                    // The return value of the function is another option type.
+        
+        |> Option.map calculator.GetShippingZone    // Option.map apply a function to the option value
 
     let ex1() = 
         let v = CustomerShippingZone(ShippingCalculator(), { ZipCode = Some(ZipCode "aaaa") })

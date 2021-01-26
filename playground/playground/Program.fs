@@ -57,9 +57,17 @@ let main argv =
 
     Playground.PatternMatching.ex1()
     Playground.PatternMatching.ex2()
+    Playground.PatternMatching.ex21()
     Playground.PatternMatching.ex3()
     Playground.PatternMatching.ex4()
 
     Playground.OptionValues.ex1()
+
+    Playground.UnitsOfMeasure.ex1()
+
+    Playground.DefiningClasses.ex1()
+    Playground.DefiningGenericClasses.ex1()
+    Playground.ImplementingInterfaces.ex1()
+    Playground.ImplementingInterfaces.ex2()
 
     0 // return an integer exit code

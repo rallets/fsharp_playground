@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="01-BasicFunctions.fs" />
     <Compile Include="02-Immutability.fs" />
     <Compile Include="03-Primitives.fs" />
@@ -17,7 +20,11 @@
     <Compile Include="08B-DiscriminatedUnions.fs" />
     <Compile Include="09-PatternMatching.fs" />
     <Compile Include="10-OptionalTypes.fs" />
+    <Compile Include="11-UnitsOfMeasure.fs" />
+    <Compile Include="12-ClassesAndInterfaces.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>
