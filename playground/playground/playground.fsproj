@@ -22,9 +22,15 @@
     <Compile Include="10-OptionalTypes.fs" />
     <Compile Include="11-UnitsOfMeasure.fs" />
     <Compile Include="12-ClassesAndInterfaces.fs" />
+    <Compile Include="13-Currying.fs" />
+    <Compile Include="14-PartialApplicationAndPipe.fs" />
+    <Compile Include="15-Composition.fs" />
+    <Compile Include="16-DefiningFunctions.fs" />
+    <Compile Include="17-DefiningOperators.fs" />
+    <Compile Include="18-Combinators.fs" />
+    <Compile Include="19-TypeExtensions.fs" />
+    <Compile Include="20-ExStackBasedCalculator.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>

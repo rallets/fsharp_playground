@@ -1,6 +1,14 @@
 ﻿namespace Playground
 
+// Attribute used to force to use a full qualified access, so you cannot use "open" to include this module, 
+// but we can still access the functions (without any ambiguity) via their qualified name
+[<RequireQualifiedAccess>]
 module BasicFunctions =
+
+    // single line comments use a double slash
+    (* multi line comments use (* . . . *) pair
+
+    -end of multi line comment- *)
 
     /// You use 'let' to define a function. This one accepts an integer argument and returns an integer. 
     /// Parentheses are optional for function arguments, except for when you use an explicit type annotation.
