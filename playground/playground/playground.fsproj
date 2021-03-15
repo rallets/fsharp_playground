@@ -30,6 +30,7 @@
     <Compile Include="18-Combinators.fs" />
     <Compile Include="19-TypeExtensions.fs" />
     <Compile Include="20-ExStackBasedCalculator.fs" />
+    <Compile Include="21-Async.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

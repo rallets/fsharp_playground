@@ -12,6 +12,8 @@
 ### Specific topics
 
 * [Eric Lippert's blog | Fabulous adventures in coding | Monads, part one to thirteen](https://ericlippert.com/2013/02/21/monads-part-one/)
+* [Microsoft | Async programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/asynchronous-and-concurrent-programming/async)
+* [Microsoft | Casting and Conversions (F#)](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/casting-and-conversions)
 
 ### Technical references
 

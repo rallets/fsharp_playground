@@ -70,4 +70,16 @@ let main argv =
     Playground.ImplementingInterfaces.ex1()
     Playground.ImplementingInterfaces.ex2()
 
+    Playground.Async.printTotalFileBytes "readme.txt"
+        |> Async.RunSynchronously
+
+    Playground.Async.resultParallel
+        |> Async.RunSynchronously
+
+    Playground.Async.resultSequential
+        |> Async.RunSynchronously
+        |> ignore
+
+    Console.Read() |> ignore
+
     0 // return an integer exit code
