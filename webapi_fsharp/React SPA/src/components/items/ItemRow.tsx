@@ -6,10 +6,11 @@ import { ItemHeader } from './models';
 
 type ItemRowProps = {
 	item: ItemHeader;
+	disabled: boolean;
 	onDeleteItem: (id: guid) => void;
 };
 
-const ItemRow: FC<ItemRowProps> = ({ item, onDeleteItem }) => {
+const ItemRow: FC<ItemRowProps> = ({ item, disabled, onDeleteItem }) => {
 	// The `path` lets us build <Route> paths that are
 	// relative to the parent route, while the `url` lets
 	// us build relative links.
@@ -32,14 +33,17 @@ const ItemRow: FC<ItemRowProps> = ({ item, onDeleteItem }) => {
 		<Link
 			key={item.id}
 			className={`list-group-item list-group-item-action d-flex justify-content-between align-items-center ${
-				id === item.id ? 'active' : ''
+				id === item.id && !disabled ? 'active' : ''
 			}`}
-			to={`${url}/${item.id}`}>
+			to={`${url}/${item.id}`}
+			onClick={(e) => {
+				if (disabled) e.preventDefault();
+			}}>
 			{item.name}
 
 			<span className="badge badge-light">{item.numTags}</span>
 
-			{id === item.id && (
+			{id === item.id && !disabled && (
 				<button className="btn btn-outline-danger" onClick={(e): void => handleDeleteItem(e, item.id)}>
 					Delete
 				</button>

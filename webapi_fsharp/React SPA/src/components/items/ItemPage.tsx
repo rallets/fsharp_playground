@@ -18,15 +18,16 @@ export type ItemPageParams = {
 
 export const ItemPage: FC<ItemPageProps> = ({ isNew, onEdited, onAdded, onCancel }) => {
 	const { id } = useParams<ItemPageParams>();
-	const [{ isValid, payload: item, loading }, doRefresh] = useItem(id);
+	// const [{ isValid, payload: item, loading }, doRefresh] = useItem(id);
 
 	const [isEditing, setIsEditing] = useState(false);
-	const handleIsEditing = (): void => setIsEditing(true);
-
 	const [isAdding, setIsAdding] = useState(false);
 
 	useEffect(() => {
 		setIsEditing(false);
+		if (!!id) {
+			setIsAdding(false);
+		}
 	}, [id]);
 
 	useEffect(() => {
@@ -43,7 +44,7 @@ export const ItemPage: FC<ItemPageProps> = ({ isNew, onEdited, onAdded, onCancel
 		const result = await editItem(id, item);
 		if (result) {
 			onEdited({ id, name: item.name, numTags: item.tags?.length || 0 });
-			doRefresh();
+			// doRefresh();
 			setIsEditing(false);
 			toast.info(`Item saved`);
 		}
@@ -58,6 +59,39 @@ export const ItemPage: FC<ItemPageProps> = ({ isNew, onEdited, onAdded, onCancel
 		}
 	}
 
+	if (isAdding) {
+		return <ItemEditForm item={null} handleClose={handleClose} handleSave={handleAdd} />;
+	}
+
+	return (
+		<>
+			{id && (
+				<ItemDetailPage
+					id={id}
+					isEditing={isEditing}
+					setIsEditing={setIsEditing}
+					handleClose={handleClose}
+					handleSave={handleSave}
+				/>
+			)}
+
+			{/* <span>Item Page ID: {id}</span>
+			<ObjectDump value={item} /> */}
+		</>
+	);
+};
+
+export type ItemDetailPageProps = {
+	id: string;
+	isEditing: boolean;
+	setIsEditing: (value: boolean) => void;
+	handleSave: (item: ItemEditData) => void;
+	handleClose: () => void;
+};
+
+const ItemDetailPage: FC<ItemDetailPageProps> = ({ id, isEditing, setIsEditing, handleSave, handleClose }) => {
+	const [{ isValid, payload: item, loading }, doRefresh] = useItem(id);
+
 	if (!isValid || !item) {
 		return <p>Invalid item</p>;
 	}
@@ -66,14 +100,22 @@ export const ItemPage: FC<ItemPageProps> = ({ isNew, onEdited, onAdded, onCancel
 		<>
 			{loading && <p>Loading...</p>}
 
-			{isEditing && <ItemEditForm item={item} handleClose={handleClose} handleSave={handleSave} />}
-			{isAdding && <ItemEditForm item={null} handleClose={handleClose} handleSave={handleAdd} />}
+			{isEditing && (
+				<ItemEditForm
+					item={item}
+					handleClose={handleClose}
+					handleSave={async (item) => {
+						await handleSave(item);
+						doRefresh();
+					}}
+				/>
+			)}
 
-			{!isEditing && !isAdding && (
+			{!isEditing && (
 				<>
 					<div className="row mb-2">
 						<div className="col">
-							<button className="btn btn-outline-primary float-right" onClick={handleIsEditing}>
+							<button className="btn btn-outline-primary float-right" onClick={() => setIsEditing(true)}>
 								Edit
 							</button>
 						</div>
@@ -103,7 +145,6 @@ export const ItemPage: FC<ItemPageProps> = ({ isNew, onEdited, onAdded, onCancel
 					</div>
 				</>
 			)}
-
 			{/* <span>Item Page ID: {id}</span>
 			<ObjectDump value={item} /> */}
 		</>

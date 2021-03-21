@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Helpers\Helpers.fs" />
     <Compile Include="Models\Item.fs" />
     <Compile Include="Models\WeatherForecast.fs" />
     <Compile Include="Data\Data.fs" />

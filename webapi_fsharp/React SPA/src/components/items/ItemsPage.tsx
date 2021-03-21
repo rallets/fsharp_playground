@@ -84,7 +84,9 @@ export const ItemsPage: FC<ItemsPageProps> = () => {
 				<div className="row">
 					<div className="col-4">
 						<div className="d-flex flex-row-reverse mb-2">
-							<button className="btn btn-outline-info align-self-end" onClick={() => setIsAdding(true)}>
+							<button
+								className={`btn btn-outline-info align-self-end ${isAdding ? 'active' : ''}`}
+								onClick={() => setIsAdding(!isAdding)}>
 								Add
 							</button>
 						</div>
@@ -97,20 +99,23 @@ export const ItemsPage: FC<ItemsPageProps> = () => {
 							{orderedItems.length === 0 && <p>No items found</p>}
 
 							{orderedItems.map((item) => (
-								<ItemRow key={item.id} item={item} onDeleteItem={handleDeleteItem} />
+								<ItemRow key={item.id} disabled={isAdding} item={item} onDeleteItem={handleDeleteItem} />
 							))}
 						</div>
 					</div>
 
 					<div className="col-8">
-						<Switch>
-							<Route path={`${path}/:id`}>
-								<ItemPage isNew={isAdding} onEdited={handleEdited} onAdded={handleAdded} onCancel={handleCancelEditing} />
-							</Route>
-							<Route path={path}>
-								<h3>Please select a item.</h3>
-							</Route>
-						</Switch>
+						{isAdding && <ItemPage isNew={true} onEdited={handleEdited} onAdded={handleAdded} onCancel={handleCancelEditing} />}
+						{!isAdding && (
+							<Switch>
+								<Route path={`${path}/:id`}>
+									<ItemPage isNew={false} onEdited={handleEdited} onAdded={handleAdded} onCancel={handleCancelEditing} />
+								</Route>
+								<Route path={path}>
+									<h3>Please select a item.</h3>
+								</Route>
+							</Switch>
+						)}
 					</div>
 				</div>
 			</div>
